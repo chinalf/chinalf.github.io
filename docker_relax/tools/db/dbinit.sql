@@ -1,6 +1,10 @@
-DROP DATABASE IF EXISTS itone;
-CREATE DATABASE itone;
-ALTER DATABASE itone SET search_path = public, platform, itone_data, itone;
+\set v_dbname itone
+
+DROP DATABASE IF EXISTS :v_dbname;
+CREATE DATABASE :v_dbname;
+ALTER DATABASE :v_dbname SET search_path = public, platform, itone_data, itone;
+
+\c :v_dbname
 
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 CREATE EXTENSION IF NOT EXISTS dblink;
